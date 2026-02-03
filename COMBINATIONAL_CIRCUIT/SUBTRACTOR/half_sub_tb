@@ -1,0 +1,16 @@
+module tb_half_subtractor;
+  reg a,b;
+  wire barrow,diff;
+  half_subtractor dut(.a(a), .b(b), .barrow(barrow), .diff(diff));
+  initial begin
+    $dumpfile("half_subtractor.vcd");
+    $dumpvars(1,tb_half_subtractor);
+    $monitor(" Time=0%t a=%b b=%b barrow=%b diff=%b", $time, a, b, barrow, diff);
+    a=0; b=0;#10
+    a=0; b=1;#10
+    a=1; b=0;#10
+    a=1; b=1;#10
+    $finish;
+  end
+endmodule
+    
