@@ -1,0 +1,4 @@
+module half_subtractor(output barrow,diff,input a,b);
+  assign barrow= a^b;
+  assign diff= (!a)&(b);
+endmodule
