@@ -1,0 +1,16 @@
+module tb_mux4_1;
+reg sel1,sel2,i0,i1,i2,i3;
+wire y;
+mux4_1 dut (.i0(i0), .i1(i1), .i2(i2), .i3(i3), .sel1(sel1), .sel2(sel2), .y(y));
+initial begin
+    $dumpfile("mux4_1.vcd");
+    $dumpvars(1,tb_mux4_1);
+    $monitor("Time=0%t sel1=%b sel2=%b y=%b",$time, sel1, sel2, y);
+    i0=1; i1=0; i2=0; i3=1;
+    sel1=0; sel2=0;#10
+    sel1=0; sel2=1;#10
+    sel1=1; sel2=0;#10
+    sel1=1; sel2=1;#10
+    $finish;
+end
+endmodule
