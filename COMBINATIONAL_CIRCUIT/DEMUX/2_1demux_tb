@@ -1,0 +1,15 @@
+module tb_demux2_1;
+reg a,sel;
+wire y1,y2;
+demux2_1 dut(.*);
+initial begin
+    $dumpfile("demux2_1.vcd");
+    $dumpvars(1,tb_demux2_1);
+    a=1;
+    $display("a=%b",a);
+    $monitor("Time=0%t sel=%b y1=%b y2=%b",$time,sel,y1,y2);
+    sel=0;#10
+    sel=1;#10
+    $finish;
+end
+endmodule
