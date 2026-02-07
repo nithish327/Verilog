@@ -1,0 +1,7 @@
+module full_adder(output reg sum ,carry ,input wire a,b,cin);
+always @(*)begin
+    sum= a^b^cin;
+    carry= a&b | b&cin | a&cin;
+end
+endmodule
+    
