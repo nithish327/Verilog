@@ -1,7 +1,0 @@
-module half_sub(output reg diff ,barrow ,input wire a,b);
-always @(*)begin
-    diff= a^b;
-    barrow= (!a)&(b);
-end
-endmodule
-    
